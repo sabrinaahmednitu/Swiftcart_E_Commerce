@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Products | SwiftCart</title>
+   <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- tailwind + daisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+   <!-- Navbar -->
+    <div class="navbar bg-base-100 shadow-sm">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </div>
+          <ul
+            tabindex="-1"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          >
+            <li><a class="text-indigo-600" href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a>About</a></li>
+            <li><a>Contact</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-ghost text-xl">SwiftCart</a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a class="text-indigo-600" href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a>About</a></li>
+          <li><a>Contact</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <button onclick="openCart()" class="relative">
+          <i class="fa-solid fa-cart-arrow-down"></i>
+          <span
+            id="cartCount"
+            class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs px-1 rounded-full"
+            >0</span
+          >
+        </button>
+      </div>
+    </div>
+
+<!--Product content -->
+<section class="max-w-7xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-4">Our Products</h2>
+
+  <div id="categories" class="flex gap-3 mb-6 flex-wrap"></div>
+
+  <div id="loader" class="hidden justify-center my-6">
+    <div class="animate-spin w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full"></div>
+  </div>
+
+  <div id="products" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+</section>
+
+<!-- Product detail modal -->
+<div id="detailsModal"
+  class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+
+  <div class="bg-white w-full max-w-lg p-6 rounded relative">
+    <button onclick="closeDetails()" class="absolute top-3 right-3 text-xl">✕</button>
+
+    <img id="modalImage" class="h-48 mx-auto object-contain mb-4" />
+
+    <h2 id="modalTitle" class="text-xl font-bold mb-2"></h2>
+    <p id="modalDescription" class="text-gray-600 mb-3"></p>
+
+    <div class="flex justify-between items-center mb-4">
+      <span id="modalPrice" class="text-lg font-bold text-indigo-600"></span>
+      <span id="modalRating"></span>
+    </div>
+
+    <button id="modalAddToCart"
+      class="w-full bg-indigo-600 text-white py-2 rounded">
+      Add to Cart
+    </button>
+  </div>
+</div>
+
+
+<!-- Cart modal section-->
+<div id="cartModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center">
+  <div class="bg-white p-6 rounded w-full max-w-md">
+    <h2 class="text-xl font-bold mb-4">Your Cart</h2>
+    <div id="cartItems"></div>
+    <div class="flex justify-between mt-4 font-bold">
+      <span>Total</span>
+      <span id="totalPrice">$0</span>
+    </div>
+    <button onclick="closeCart()" class="mt-4 w-full border py-2 rounded">Close</button>
+  </div>
+</div>
+
+<script src="js/cart.js"></script>
+<script src="js/products.js"></script>
+</body>
+</html>
