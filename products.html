@@ -20,57 +20,59 @@
 </head>
 <body class="bg-gray-100">
 
-   <!-- Navbar -->
-    <div class="navbar bg-base-100 shadow-sm">
-      <div class="navbar-start">
-        <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+ <!-- Navbar -->
+    <section class="bg-base-100">
+      <div class="navbar shadow-sm container mx-auto">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="-1"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+              <li><a class="text-indigo-600" href="index.html">Home</a></li>
+              <li><a href="products.html">Products</a></li>
+              <li><a>About</a></li>
+              <li><a>Contact</a></li>
+            </ul>
           </div>
-          <ul
-            tabindex="-1"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
+          <a class="btn btn-ghost text-[#6E78E0] text-4xl">SwiftCart</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
             <li><a class="text-indigo-600" href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a>About</a></li>
             <li><a>Contact</a></li>
           </ul>
         </div>
-        <a class="btn btn-ghost text-xl">SwiftCart</a>
+        <div class="navbar-end">
+          <button onclick="openCart()" class="relative">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+            <span
+              id="cartCount"
+              class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs px-1 rounded-full"
+              >0</span
+            >
+          </button>
+        </div>
       </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1">
-          <li><a class="text-indigo-600" href="index.html">Home</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a>About</a></li>
-          <li><a>Contact</a></li>
-        </ul>
-      </div>
-      <div class="navbar-end">
-        <button onclick="openCart()" class="relative">
-          <i class="fa-solid fa-cart-arrow-down"></i>
-          <span
-            id="cartCount"
-            class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs px-1 rounded-full"
-            >0</span
-          >
-        </button>
-      </div>
-    </div>
+    </section>
 
 <!--Product content -->
 <section class="max-w-7xl mx-auto px-4 py-10">
